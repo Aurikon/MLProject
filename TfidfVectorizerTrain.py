@@ -1,6 +1,5 @@
 from data import Data
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import MaxAbsScaler
 from keras.models import Sequential
 from keras.layers import Dense
 import numpy as np
@@ -16,7 +15,6 @@ class TfIdfVectorizerTrain:
         self.data = data
         score = 0
         features = self.tfidf_vectorizer.fit_transform(self.data.x_train)
-        # train_x = MaxAbsScaler().fit_transform(features)
         print("input neuros", features.shape[1])
         self.neuro = Sequential()
         self.neuro.add(Dense(1000, input_dim=features.shape[1], activation="relu"))
